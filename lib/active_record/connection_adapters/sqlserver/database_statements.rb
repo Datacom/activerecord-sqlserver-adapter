@@ -306,7 +306,7 @@ module ActiveRecord
                 mapped_pks = "inserted.#{pk}"
               end
 
-              sql.insert(sql.index(/ (DEFAULT )?VALUES/), " OUTPUT inserted.#{pk}")
+              sql.insert(sql.index(/ (DEFAULT )?VALUES/), " OUTPUT inserted.#{mapped_pks}")
             else
               "#{sql}; SELECT CAST(SCOPE_IDENTITY() AS bigint) AS Ident"
             end
